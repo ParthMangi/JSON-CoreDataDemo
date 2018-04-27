@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35B0E81BB24604293E4A1384 /* Pods_ParthCoreDataPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E71CEBA6ED786C093E23AA8 /* Pods_ParthCoreDataPractice.framework */; };
+		4145AD7F2093874300DB8977 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4145AD7E2093874200DB8977 /* Reachability.m */; };
 		41C45FC720928B8100E3884A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C45FC620928B8100E3884A /* AppDelegate.swift */; };
 		41C45FC920928B8100E3884A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C45FC820928B8100E3884A /* ViewController.swift */; };
 		41C45FCC20928B8100E3884A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C45FCA20928B8100E3884A /* Main.storyboard */; };
@@ -25,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4145AD7C2093874100DB8977 /* ParthCoreDataPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ParthCoreDataPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		4145AD7D2093874200DB8977 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4145AD7E2093874200DB8977 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		41C45FC320928B8100E3884A /* ParthCoreDataPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParthCoreDataPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C45FC620928B8100E3884A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41C45FC820928B8100E3884A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				41C45FC820928B8100E3884A /* ViewController.swift */,
 				41C45FDB20928C2400E3884A /* Connectivity.swift */,
 				41C45FF420929EE000E3884A /* PersistantService.swift */,
+				4145AD7D2093874200DB8977 /* Reachability.h */,
+				4145AD7E2093874200DB8977 /* Reachability.m */,
 				41C45FFA2092A4AE00E3884A /* CoreData Classes */,
 				41C45FEB2092912300E3884A /* Model */,
 				41C45FCA20928B8100E3884A /* Main.storyboard */,
@@ -90,6 +96,7 @@
 				41C45FD220928B8100E3884A /* LaunchScreen.storyboard */,
 				41C45FD520928B8100E3884A /* Info.plist */,
 				41C45FCD20928B8100E3884A /* ParthCoreDataPractice.xcdatamodeld */,
+				4145AD7C2093874100DB8977 /* ParthCoreDataPractice-Bridging-Header.h */,
 			);
 			path = ParthCoreDataPractice;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 				41C45FCF20928B8100E3884A /* ParthCoreDataPractice.xcdatamodeld in Sources */,
 				41C45FF520929EE000E3884A /* PersistantService.swift in Sources */,
 				41C45FC720928B8100E3884A /* AppDelegate.swift in Sources */,
+				4145AD7F2093874300DB8977 /* Reachability.m in Sources */,
 				41C45FFE2092A4AE00E3884A /* Person+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rj.fbdemo.ParthCoreDataPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ParthCoreDataPractice/ParthCoreDataPractice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -422,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rj.fbdemo.ParthCoreDataPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ParthCoreDataPractice/ParthCoreDataPractice-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

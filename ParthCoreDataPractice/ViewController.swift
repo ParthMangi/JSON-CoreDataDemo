@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     let endPoint  = "https://jsonplaceholder.typicode.com/users"
     let cellIdentifier = "peopleCell"
+    var reachability : Reachability?
     
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var tableViewUser: UITableView!
@@ -29,12 +30,7 @@ class ViewController: UIViewController {
         initialSetup()
     }
     
-    
-    //-------------------------------------
-    //MARK: Custom Method
-    //-------------------------------------
-
-     func initialSetup() {
+    func initialSetup() {
         if Connectivity.isConnectedToInternet {
             showTableView(show: false)
             showLoading(show: true)
@@ -44,7 +40,50 @@ class ViewController: UIViewController {
         }
     }
     
-   //-------------------------------------
+    override func viewWillAppear(_ animated: Bool) {
+        setUpReachbility()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        removeReachability()
+    }
+    
+    //-------------------------------------
+    //MARK: Rechability Methods
+    //-------------------------------------
+
+    func setUpReachbility() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachbailityChanged), name: NSNotification.Name.reachabilityChanged, object:nil)
+        self.reachability = Reachability.forInternetConnection()
+        self.reachability!.startNotifier()
+
+    }
+
+    //-------------------------------------
+
+    func removeReachability() {
+        self.reachability!.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.reachabilityChanged, object: nil)
+    }
+
+    //-------------------------------------
+
+    @objc func reachbailityChanged(notification : Notification) {
+        let remoteHostStatus = self.reachability?.currentReachabilityStatus()
+        if (remoteHostStatus?.rawValue != NotReachable.rawValue) {
+            print("Internet Available")
+            showTableView(show: false)
+            showLoading(show: true)
+            getDataFromAPI()
+        } else {
+            print("Internet Gone")
+            getDataFromCoreData()
+        }
+    }
+
+    //-------------------------------------
+    //MARK: Custom Method
+    //-------------------------------------
     
     func showAlertWith (title : String , message : String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -165,8 +204,9 @@ extension ViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             deletePersonFromCoreData(person: people[indexPath.row])
-            tableView.deleteRows(at: [indexPath], with: .automatic)
             people.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
         }
     }
 }
